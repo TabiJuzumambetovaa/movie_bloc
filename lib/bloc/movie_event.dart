@@ -1,18 +1,20 @@
 part of 'movie_bloc.dart';
 
 @immutable
-sealed class MovieEvent {}
-class GetMovieEvent extends MovieEvent{
-   List<Object> get props => [];
-
+abstract class MovieEvent {
+  const MovieEvent();
 }
 
-class GetMovieEvent1 extends MovieEvent {}
+class GetMovieEvent extends MovieEvent {
+  const GetMovieEvent();
+
+  List<Object> get props => [];
+}
 
 class SearchMovieEvent extends MovieEvent {
-  final String searchText;
+  final String searchTerm;
 
-  SearchMovieEvent(this.searchText);
+  const SearchMovieEvent(this.searchTerm);
 
-  List<Object> get props => [searchText];
+  List<Object> get props => [searchTerm];
 }

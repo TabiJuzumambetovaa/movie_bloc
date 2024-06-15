@@ -1,12 +1,27 @@
+// movie_state.dart
 part of 'movie_bloc.dart';
 
 @immutable
-sealed class MovieState {}
-
-final class MovieInitial extends MovieState {}
-final class MovieLoading extends MovieState {}
-final class MovieSucsess extends MovieState {
-  final MovieModel model;
-  MovieSucsess({required this.model});
+abstract class MovieState {
+  const MovieState();
 }
-final class MovieError extends MovieState {}
+
+class MovieInitial extends MovieState {
+  List<Object> get props => [];
+}
+
+class MovieLoading extends MovieState {
+  List<Object> get props => [];
+}
+
+class MovieSuccess extends MovieState {
+  final MovieModel model; // изменение на исходное имя
+
+  const MovieSuccess({required this.model}); // изменение на исходное имя
+
+  List<Object> get props => [model];
+}
+
+class MovieError extends MovieState {
+  List<Object> get props => [];
+}

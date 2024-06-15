@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<MovieBloc>(
       create: (context) => MovieBloc(),
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) {
-          if (state is MovieSucsess) {
+          if (state is MovieSuccess) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
